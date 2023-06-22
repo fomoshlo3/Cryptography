@@ -1,4 +1,5 @@
-﻿using Crypto.Lib;
+﻿
+using Crypto.Lib;
 using System.Numerics;
 
 int exp = 67;
@@ -11,7 +12,7 @@ string input = Console.ReadLine().TrimEnd('\r');
 BigInteger[] encryptedText = new BigInteger[input.Length];
 if (input != string.Empty && input != null)
 {
-    Console.WriteLine("Entschlüsselter Text:");
+    Console.WriteLine("ciphertext:");
     foreach (char c in input)
     {
         BigInteger hashedValue = BigInteger.Pow(c, exp) % (P1 * P2);
@@ -38,14 +39,15 @@ foreach (string encryptedValue in encryptedValues)
     decryptedText += decryptedChar.ToString();
 
 }
-
-Console.WriteLine(decryptedText);
-
-
-Console.WriteLine("Please give the first Part of the Public Key(N or Product of Primes):");
+Console.WriteLine("plaintext:");
+Console.WriteLine(decryptedText + Environment.NewLine);
 
 
-int N = Int32.Parse(Console.ReadLine());
+Console.WriteLine("Gib einen Public Key (N,e) ein:");
+
+
+int N = Int32.Parse(Console.ReadLine().Split(",")[0]);
+exp = Int32.Parse(Console.ReadLine().Split(",")[1]);
 Prime primes = new(N);
 var list =  primes.Generate();
 
