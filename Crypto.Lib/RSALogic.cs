@@ -21,7 +21,7 @@ namespace Crypto.Lib
 
         public BigInteger CalculatePrivateKeyExponent()
         {
-            //TODO: Exponent berechnen
+            //todo: Exponent berechnen
             throw new NotImplementedException();
         }
 
@@ -52,6 +52,15 @@ namespace Crypto.Lib
             return decryptedText;
         }
 
+
+        public Dictionary<BigInteger, BigInteger> Factorize_Slow_TrivialsIncluded(string productOfPrimes)
+        {
+            return Factorize_Slow_TrivialsIncluded(BigInteger.Parse(productOfPrimes));
+        }
+        public Dictionary<BigInteger, BigInteger> Factorize_Slow_TrivialsIncluded(int productOfPrimes)
+        {
+            return Factorize_Slow_TrivialsIncluded(productOfPrimes.ToString());
+        }
         public Dictionary<BigInteger, BigInteger> Factorize_Slow_TrivialsIncluded(BigInteger productOfPrimes)
         {
             Prime primes = new(productOfPrimes);
