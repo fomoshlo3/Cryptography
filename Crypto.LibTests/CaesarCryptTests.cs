@@ -8,5 +8,6 @@ namespace Crypto.LibTests
 {
     internal class CaesarCryptTests
     {
+
     }
 }

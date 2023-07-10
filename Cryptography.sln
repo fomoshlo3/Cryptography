@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crypto.Lib", "Crypto.Lib\Crypto.Lib.csproj", "{AD1A045A-7545-4269-8F9C-68CD7A78EFBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto.LibTests", "Crypto.LibTests\Crypto.LibTests.csproj", "{FC98029C-AF1B-4BE9-A79B-B6394690F402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crypto.LibTests", "Crypto.LibTests\Crypto.LibTests.csproj", "{FC98029C-AF1B-4BE9-A79B-B6394690F402}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptsConsole", "..\ConceptsConsole\ConceptsConsole\ConceptsConsole.csproj", "{5C7F31B2-B712-4C5A-A262-653953E4549C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FC98029C-AF1B-4BE9-A79B-B6394690F402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC98029C-AF1B-4BE9-A79B-B6394690F402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC98029C-AF1B-4BE9-A79B-B6394690F402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C7F31B2-B712-4C5A-A262-653953E4549C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C7F31B2-B712-4C5A-A262-653953E4549C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C7F31B2-B712-4C5A-A262-653953E4549C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C7F31B2-B712-4C5A-A262-653953E4549C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

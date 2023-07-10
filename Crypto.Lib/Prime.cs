@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics;
+using System.Numerics;
 
 namespace Crypto.Lib
 {
@@ -106,6 +107,11 @@ namespace Crypto.Lib
         #endregion
 
         #region Miller-Rabin
+        public static bool IsPropablyPrime(BigInteger value)
+        {
+            if(value == 2 || value == 3) return true;
+            return !IsComposite_MillerRabin(value);
+        }
         public static bool IsComposite_MillerRabin(int value, int iterations = 20)
         {
             return IsComposite_MillerRabin(value.ToString(), iterations); 
@@ -118,12 +124,15 @@ namespace Crypto.Lib
 
         public static bool IsComposite_MillerRabin(BigInteger value, int iterations = 20)
         {
-            //TODO: Biginteger as byte array conversion
+            var rnd = new Random();
+            
             for (int i = 0; i < iterations; i++)
             {
-
+                var randomBigInt = rnd.NextBigInteger(2, value - 2);
+                if (IsComposite_Witness(value, randomBigInt)) return true;
             }
-            throw new NotImplementedException();
+            return false;
+         
         }
         public static bool IsComposite_Witness(int value, int witness)
         {
@@ -153,23 +162,14 @@ namespace Crypto.Lib
             {
                 BigInteger x, q;
                 x = ModPow_withCeckForWitness(value, BigInteger.Divide(exponent, 2), modulus);
+
                 q = BigInteger.ModPow(x, 2, value);
-                /* Note: Looks a bit sketchy since i transferred it from a python code example
-                 * 
-                 * *****python code:
-                 * if q == 1 :
-                 *      assert x == 1 or x == value - 1
-                 * return q
-                 * *****
-                 */
-                if ((q == 1 && x == 1) || (q == 1 && x == value - 1))
+
+                if (q == 1)
                 {
-                    return q;
+                    Debug.Assert(x == 1 || x == value - 1);
                 }
-                else
-                {
-                    throw new Exception($"ModPow2 found witness for value being composite: {x}");
-                }
+                return q;
             }
         }
         #endregion
